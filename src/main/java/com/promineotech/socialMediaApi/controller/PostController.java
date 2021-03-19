@@ -13,7 +13,7 @@ import com.promineotech.socialMediaApi.entity.Post;
 import com.promineotech.socialMediaApi.service.PostService;
 
 @RestController
-@RequestMapping("/users/{usersId}/posts")
+@RequestMapping("/users/{userId}/posts")
 public class PostController {
 	
 	@Autowired
@@ -29,7 +29,7 @@ public class PostController {
 		return new ResponseEntity<Object>(service.getPost(postId), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/{postId", method=RequestMethod.PUT)
+	@RequestMapping(value="/{postId}", method=RequestMethod.PUT)
 	public ResponseEntity<Object> updatePost(@RequestBody Post post, @PathVariable Long postId) {
 		try {
 			return new ResponseEntity<Object>(service.updatePost(post, postId), HttpStatus.OK);
@@ -41,7 +41,7 @@ public class PostController {
 	@RequestMapping(method=RequestMethod.POST)
 	public ResponseEntity<Object> createPost(@RequestBody Post post, @PathVariable Long userId) {
 		try {
-			return new ResponseEntity<Object>(service.createPost(post,  userId), HttpStatus.OK);
+			return new ResponseEntity<Object>(service.createPost(post, userId), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<Object>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}

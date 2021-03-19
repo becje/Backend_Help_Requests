@@ -50,7 +50,7 @@ public class UserController {
 		}
 	}
 	
-	@RequestMapping(value = "/{id}/follows/{followID}", method = RequestMethod.POST)
+	@RequestMapping(value = "/{id}/follows/{followId}", method = RequestMethod.POST)
 	public ResponseEntity<Object> follow(@PathVariable Long id, @PathVariable Long followId) {
 		try {
 			return new ResponseEntity<Object>(service.follow(id, followId), HttpStatus.CREATED);
